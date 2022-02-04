@@ -1,0 +1,1 @@
+DATABASE_URI = 'postgresql+psycopg2://root:test123@database:5432/database'
