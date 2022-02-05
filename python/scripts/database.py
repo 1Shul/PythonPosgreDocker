@@ -16,10 +16,14 @@ def db_create():
 
     session=open_session()
 
-    session.add(Tournament('Qatar'))
-    session.add(Teams('Peru'))
-    session.add(Teams('Portugal'))
-    session.add(Matches(1,2,2,1))
+    session.add(Tournament(title="Qatar"))
+    session.add(Teams(name="Peru"))
+    session.add(Teams(name="Portugal"))
+    session.add(Matches(idLocalTeam=1, idVisitorTeam=2, goalLocalTeam=2, goalVisitorTeam=1))
+
+    session.commit()
+
+    session.close()
 
 
 
