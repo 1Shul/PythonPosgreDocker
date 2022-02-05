@@ -2,23 +2,22 @@ from scripts.database import open_session
 from scripts.models import Tournament, Teams, Matches
 
 def create_match():
+
+    """
+    Function for match result registration
+    """
+
     session = open_session()
 
-    #user=session.query(Tournament).all()
-    #print(user)
-    teamA=session.query(Teams).filter_by(name=input("Ingrese el nombre del primer equipo")).first()
-    teamB=session.query(Teams).filter_by(name=input("Ingrese el nombre del segundo equipo")).first()
+    teamA=session.query(Teams).filter_by(name=input("Enter the first team name: ")).first()
+    teamB=session.query(Teams).filter_by(name=input("Enter the second team name: ")).first()
 
-    golesA = int(input("Ingrese la cantidad de goles del primer equipo"))
-    golesB = int(input("Ingrese la cantidad de goles del segundo equipo"))
+    golesA = int(input("Insert the goal quantity of the first team: "))
+    golesB = int(input("Insert the goal quantity of the second team: "))
 
     match=Matches(idLocalTeam=teamA.id, idVisitorTeam=teamB.id, goalLocalTeam=golesA, goalVisitorTeam=golesB)
     session.add(match)
 
-    #print('flush')
-
     session.commit()
-
-    #our_tournament = session.query(Tournament).filter_by(title='Ptmr').first()
 
     session.close()
