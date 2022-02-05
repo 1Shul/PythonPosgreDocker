@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 engine = create_engine(DATABASE_URI)
 
-def creacion():
+def db_create():
 
     Base.metadata.create_all(engine)
     #print(Base.metadata.tables)
