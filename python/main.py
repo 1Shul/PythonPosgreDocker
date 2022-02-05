@@ -2,7 +2,7 @@ from scripts.database import db_create
 from scripts.tournament import create_tournament
 from scripts.team import create_team
 from scripts.match import create_match
-from scripts.export import export_data, export_teams
+from scripts.export import export_data, export_teams, export_matches
 
 if __name__ == '__main__':
     """
@@ -25,3 +25,4 @@ if __name__ == '__main__':
     if 3 == a:
         export_data()
         export_teams()
+        export_matches()
